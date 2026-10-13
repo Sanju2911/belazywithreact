@@ -16,14 +16,14 @@ Do not initialize a second README, license, or .gitignore remotely. Verify
 Update project URLs in pyproject.toml only after verifying the repository exists.
 Wait for the **CI** workflow to pass, including all three operating systems.
 
-Before any production release, create the GitHub environments **testpypi** and
-**pypi** under Settings > Environments. For **pypi**, configure required reviewers
-and disallow administrator bypass; permit only release tags matching `v*`.
-Use an approval arrangement that works for your team: do not enable prevention
-of self-review if you are the only maintainer able to approve. Environment names
-in PyPI configuration must match the workflow exactly.
+The GitHub environments **testpypi** and **pypi** were created on 2026-10-14.
+The **pypi** environment requires review by **Sanju2911**, disallows administrator
+bypass, and permits only tags matching `v*`. Self-review remains allowed so the
+sole maintainer can approve a release. Verify these protections under Settings >
+Environments before each production release. Environment names in PyPI
+configuration must match the workflow exactly.
 
-Do not assume that the workflow file creates these protections. Until configured,
+The workflow file alone does not create these protections. If they are removed,
 publishing a non-prerelease GitHub Release could start the production upload.
 Do not publish a GitHub Release until the final artifacts have been reviewed and
 the owner has explicitly approved production publication.

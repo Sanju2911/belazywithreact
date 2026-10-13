@@ -90,6 +90,10 @@ repository https://github.com/Sanju2911/belazywithreact was created and verified
 empty. Local origin points to that repository. Verified project URLs were added
 to package metadata, and all 69 tests and strict distribution checks passed again.
 GitHub CLI authorization is required to push the prepared commits.
+The GitHub environments testpypi and pypi were created. Production pypi requires
+Sanju2911 review, disables administrator bypass, and accepts only v* tags.
+The TestPyPI publishing settings redirect to login; no authenticated index
+session or configured Trusted Publisher has been verified.
 Remote Actions have not yet been executed; local Actionlint
 validation is not a substitute for successful CI on all OS/Python combinations.
 Python 3.10/3.14, macOS, and Linux were not run locally.

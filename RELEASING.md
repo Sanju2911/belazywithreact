@@ -9,7 +9,8 @@ someone else or attempt to reuse an already uploaded version/file.
 
 ## GitHub setup
 
-Create a public repository named `belazywithreact` under the intended owner.
+The public repository is [Sanju2911/belazywithreact](https://github.com/Sanju2911/belazywithreact),
+created and verified on 2026-10-14.
 Do not initialize a second README, license, or .gitignore remotely. Verify
 `git remote -v` before setting origin and pushing `main`; never force-push.
 Update project URLs in pyproject.toml only after verifying the repository exists.
@@ -41,7 +42,7 @@ Set these fields separately for each service:
 | Field | Production PyPI | TestPyPI |
 | --- | --- | --- |
 | PyPI project name | `belazywithreact` | `belazywithreact` |
-| GitHub owner | `Sanju2911` (confirm signed-in owner) | `Sanju2911` (confirm signed-in owner) |
+| GitHub owner | `Sanju2911` | `Sanju2911` |
 | GitHub repository | `belazywithreact` | `belazywithreact` |
 | Workflow filename | `publish.yml` | `testpypi.yml` |
 | GitHub environment | `pypi` | `testpypi` |

@@ -85,9 +85,12 @@ index. On 2026-10-13 both package JSON endpoints returned HTTP 404, and the
 public repository lookup for the intended owner/name returned 404. A 404 is not
 proof that a name can be claimed or that a private repository does not exist.
 
-GitHub device authentication was started in the external browser. Repository
-creation and push require that authorization to complete and the signed-in owner
-to be verified. Remote Actions have not yet been executed; local Actionlint
+On 2026-10-14 the browser session was verified as Sanju2911, and the public
+repository https://github.com/Sanju2911/belazywithreact was created and verified
+empty. Local origin points to that repository. Verified project URLs were added
+to package metadata, and all 69 tests and strict distribution checks passed again.
+GitHub CLI authorization is required to push the prepared commits.
+Remote Actions have not yet been executed; local Actionlint
 validation is not a substitute for successful CI on all OS/Python combinations.
 Python 3.10/3.14, macOS, and Linux were not run locally.
 

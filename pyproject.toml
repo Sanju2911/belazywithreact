@@ -25,6 +25,11 @@ classifiers = [
 ]
 dependencies = ["typer>=0.12,<1.0", "rich>=13.7,<15.0"]
 
+[project.urls]
+Homepage = "https://github.com/Sanju2911/belazywithreact"
+Repository = "https://github.com/Sanju2911/belazywithreact"
+Issues = "https://github.com/Sanju2911/belazywithreact/issues"
+
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "pytest-cov>=5.0", "build>=1.2", "twine>=6.0"]
 

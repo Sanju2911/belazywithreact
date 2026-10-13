@@ -1,0 +1,22 @@
+name: Bug report
+description: Report a reproducible CLI or generated-app failure
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python, Node.js, npm, and belazywithreact versions
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Command and steps to reproduce
+      description: Include flags and expected versus actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Relevant output
+      description: Remove secrets, private paths, and personal data before posting.

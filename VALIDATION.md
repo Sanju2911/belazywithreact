@@ -1,4 +1,4 @@
-# Validation report — 2026-10-13
+# Validation report — 2026-10-13 through 2026-10-14
 
 ## Existing implementation
 
@@ -94,8 +94,9 @@ commits also trigger CI; see the repository's Actions tab for their current stat
 
 ## External state and limitations
 
-No production release tag or GitHub Release was created. Production PyPI remains
-unpublished. On 2026-10-13 both package JSON endpoints returned HTTP 404, and the
+Version 0.1.0 is published on production PyPI after explicit owner approval.
+Tag v0.1.0 and the GitHub Release point to c18bf4840ba81729bbcb74ffd89ebe3b77d570fe.
+On 2026-10-13 both package JSON endpoints returned HTTP 404, and the
 public repository lookup for the intended owner/name returned 404. A 404 is not
 proof that a name can be claimed or that a private repository does not exist.
 
@@ -107,19 +108,53 @@ The prepared branch is connected and pushed; GitHub CLI authorization is complet
 The GitHub environments testpypi and pypi were created. Production pypi requires
 Sanju2911 review, disables administrator bypass, and accepts only v* tags.
 Both index accounts are authenticated as t.sanju2911. Production PyPI's pending
-publisher is registered for publish.yml / pypi, with the owner's approval for
-configuration only. TestPyPI's publisher is registered for testpypi.yml / testpypi.
+publisher was registered for publish.yml / pypi with configuration-only approval,
+followed by separate explicit production release/upload approval. TestPyPI's
+publisher is registered for testpypi.yml / testpypi.
 [TestPyPI workflow 38509652441](https://github.com/Sanju2911/belazywithreact/actions/runs/38509652441)
 successfully built, validated, and uploaded version 0.1.0 from commit 590bfb9.
 The TestPyPI JSON API verified both artifacts and their SHA256 digests. A clean
 Windows environment installed the wheel directly from test-files.pythonhosted.org
 with a matching digest, passed pip check, and ran the installed CLI --help.
 Dependencies were installed separately from normal PyPI to ensure package origin.
+The TestPyPI-installed CLI also generated a real app from a path with spaces;
+npm ci, Vitest, ESLint, production build, and npm audit all passed (zero advisories).
 Remote Actions passed on all configured OS/Python combinations. Python
 3.10/3.14, macOS, and Linux were validated in CI rather than on this Windows host.
 
+## Production publication and verification
+
+- [PyPI 0.1.0](https://pypi.org/project/belazywithreact/0.1.0/)
+- [GitHub Release v0.1.0](https://github.com/Sanju2911/belazywithreact/releases/tag/v0.1.0)
+- [Production publish workflow](https://github.com/Sanju2911/belazywithreact/actions/runs/38510590350)
+- [Release-commit CI: all 12 jobs passed](https://github.com/Sanju2911/belazywithreact/actions/runs/38510087887)
+- [TestPyPI 0.1.0](https://test.pypi.org/project/belazywithreact/0.1.0/)
+
+The protected pypi deployment was approved only after the owner's explicit
+release approval. The workflow-built wheel contents and sdist matched the approved
+local candidate and passed strict Twine checks before the upload job was released.
+Both build and publish jobs succeeded through OIDC, without an API-token secret.
+
+Published SHA256 digests, verified against the workflow artifacts and PyPI API:
+
+| File | SHA256 |
+| --- | --- |
+| belazywithreact-0.1.0-py3-none-any.whl | 3d809f597cf7ce2bd28f22cffa405e71bdf64d54cb13b19538552ca9f30cde34 |
+| belazywithreact-0.1.0.tar.gz | bc2f6017eca40374ddf92c3449c18092035466ef89bb1580d800ef365c27cbe4 |
+
+A second fresh Windows virtual environment installed belazywithreact==0.1.0
+from normal PyPI. Its pip installation report recorded files.pythonhosted.org and
+the matching published wheel digest. pip check, CLI --help, installed-version
+verification, real app creation from a path with spaces, npm ci, Vitest, ESLint,
+production build, and npm audit all passed. No vulnerabilities were reported.
+Existing user files and the original lazy app were preserved. Verification apps
+and environments are outside the checkout in the system temporary directory.
+
+There are no remaining account setup or approval blockers for this release.
+Future releases still require version updates, validation, and production approval.
+
 PyPI and TestPyPI accounts and Trusted Publishers are separate and configured.
 The production required-reviewer protection is active. Follow [RELEASING.md](RELEASING.md)
-for exact fields, TestPyPI verification, and future releases. Production
+for exact fields, TestPyPI verification, and future releases. Future production
 publication requires the owner's explicit approval after reviewing version,
 filenames, hashes, successful validation, CI, and TestPyPI results.

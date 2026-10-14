@@ -1,18 +1,20 @@
 # Releasing belazywithreact
 
-The first release candidate is **0.1.0**, retaining the existing version.
-No tag or PyPI publication is implied by these instructions. On 2026-10-13,
-the PyPI and TestPyPI JSON endpoints returned 404 for this name. That does not
-guarantee name availability: pending publishers do not reserve names.
-Check again immediately before publishing. Do not replace a project owned by
-someone else or attempt to reuse an already uploaded version/file.
+The initial release **0.1.0** was published to both TestPyPI and production PyPI
+on 2026-10-14, retaining the existing version. The production release tag is
+`v0.1.0` at `c18bf4840ba81729bbcb74ffd89ebe3b77d570fe`.
+Do not reuse this version or its uploaded files for another release. Do not
+replace a project owned by someone else. Pending publishers do not reserve names.
 
 On 2026-10-14, production PyPI's pending publisher was registered with explicit
 approval for configuration only. TestPyPI's publisher was registered and its
 workflow successfully published 0.1.0 from commit 590bfb9; clean-environment
 installation, package origin, dependency checks, and CLI execution were verified.
-Production publication still requires separate explicit approval. The final
-release documentation was updated afterward; the tested CLI source is preserved.
+Production publication received separate explicit approval and succeeded through
+the protected pypi environment. Installation from production PyPI, artifact
+digests, CLI execution, and generated-app tests/lint/build/audit were verified.
+The [validation report](VALIDATION.md) records exact results and workflow links.
+The instructions below describe the process for future approved releases.
 
 ## GitHub setup
 
@@ -104,15 +106,16 @@ The conventional alternative is `--index-url https://test.pypi.org/simple/
 --extra-index-url https://pypi.org/simple/`, but pip combines indexes without
 prioritizing the primary one. Confirm the downloaded artifact's source if using it.
 
-## First production release
+## First production release (completed)
 
-Show the owner: version **0.1.0**, the two filenames
+For the first release, the owner reviewed version **0.1.0**, the two filenames
 `belazywithreact-0.1.0-py3-none-any.whl` and `belazywithreact-0.1.0.tar.gz`,
 their SHA256 hashes, local validation, successful CI, and TestPyPI verification.
-Obtain explicit approval for the exact action: create tag `v0.1.0` at the reviewed
+Explicit approval was obtained for the exact action: create tag `v0.1.0` at the reviewed
 commit and publish a non-prerelease GitHub Release for that tag, triggering
 `publish.yml`; then approve the protected **pypi** environment upload job.
-Do not perform this action merely because the repository is ready.
+The release and upload succeeded. Future publication requires new version-specific
+approval; repository readiness alone is not authorization to publish.
 
 The production workflow tests, verifies tag/version consistency, builds, checks,
 and transfers only those two distributions to a separate publishing job.

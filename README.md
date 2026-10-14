@@ -6,6 +6,9 @@ A Python CLI that creates a React + TypeScript app with Vite and a useful starte
 structure. Version **0.1.0** is the initial release. npm is the supported package
 manager.
 
+[PyPI package](https://pypi.org/project/belazywithreact/) ·
+[GitHub releases](https://github.com/Sanju2911/belazywithreact/releases)
+
 ## Prerequisites
 
 - Python 3.10 or newer.

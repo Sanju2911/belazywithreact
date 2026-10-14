@@ -1,5 +1,7 @@
 # belazywithreact
 
+[![CI](https://github.com/Sanju2911/belazywithreact/actions/workflows/tests.yml/badge.svg)](https://github.com/Sanju2911/belazywithreact/actions/workflows/tests.yml)
+
 A Python CLI that creates a React + TypeScript app with Vite and a useful starter
 structure. Version **0.1.0** is an initial release candidate, not yet published
 to PyPI. npm is the supported package manager.

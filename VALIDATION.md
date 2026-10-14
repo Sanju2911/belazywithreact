@@ -78,6 +78,20 @@ The distribution files are `dist/belazywithreact-0.1.0-py3-none-any.whl` and
 local and ignored by Git. Test-generated apps and their temporary environment
 are disposable; the user's existing `lazy` app must remain untouched.
 
+## GitHub verification — 2026-10-14
+
+GitHub CLI authenticated as Sanju2911 after user-approved authorization and
+browser email verification. The prepared main branch was pushed to the intended
+public repository, and its remote commit SHA matched local HEAD. No force push
+or history rewrite was used. Private vulnerability reporting is enabled.
+
+[CI run 38501037718](https://github.com/Sanju2911/belazywithreact/actions/runs/38501037718)
+passed all 12 jobs for commit 52b62df905ae02f672a301573d99e1821ef7214d:
+nine Python test/package jobs (3.10, 3.12, 3.14 on Windows, macOS, Linux) and
+three real React scaffold validation jobs (default app install/test/lint/build
+and minimal app build on all three operating systems). Later documentation
+commits also trigger CI; see the repository's Actions tab for their current state.
+
 ## External state and limitations
 
 No release tag or GitHub Release was created. No package was uploaded to either
@@ -89,14 +103,13 @@ On 2026-10-14 the browser session was verified as Sanju2911, and the public
 repository https://github.com/Sanju2911/belazywithreact was created and verified
 empty. Local origin points to that repository. Verified project URLs were added
 to package metadata, and all 69 tests and strict distribution checks passed again.
-GitHub CLI authorization is required to push the prepared commits.
+The prepared branch is connected and pushed; GitHub CLI authorization is complete.
 The GitHub environments testpypi and pypi were created. Production pypi requires
 Sanju2911 review, disables administrator bypass, and accepts only v* tags.
 The TestPyPI publishing settings redirect to login; no authenticated index
 session or configured Trusted Publisher has been verified.
-Remote Actions have not yet been executed; local Actionlint
-validation is not a substitute for successful CI on all OS/Python combinations.
-Python 3.10/3.14, macOS, and Linux were not run locally.
+Remote Actions passed on all configured OS/Python combinations. Python
+3.10/3.14, macOS, and Linux were validated in CI rather than on this Windows host.
 
 PyPI and TestPyPI accounts and Trusted Publishers require separate setup.
 Configure GitHub environments, especially production required-reviewer

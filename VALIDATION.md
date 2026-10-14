@@ -94,8 +94,8 @@ commits also trigger CI; see the repository's Actions tab for their current stat
 
 ## External state and limitations
 
-No release tag or GitHub Release was created. No package was uploaded to either
-index. On 2026-10-13 both package JSON endpoints returned HTTP 404, and the
+No production release tag or GitHub Release was created. Production PyPI remains
+unpublished. On 2026-10-13 both package JSON endpoints returned HTTP 404, and the
 public repository lookup for the intended owner/name returned 404. A 404 is not
 proof that a name can be claimed or that a private repository does not exist.
 
@@ -106,14 +106,20 @@ to package metadata, and all 69 tests and strict distribution checks passed agai
 The prepared branch is connected and pushed; GitHub CLI authorization is complete.
 The GitHub environments testpypi and pypi were created. Production pypi requires
 Sanju2911 review, disables administrator bypass, and accepts only v* tags.
-The TestPyPI publishing settings redirect to login; no authenticated index
-session or configured Trusted Publisher has been verified.
+Both index accounts are authenticated as t.sanju2911. Production PyPI's pending
+publisher is registered for publish.yml / pypi, with the owner's approval for
+configuration only. TestPyPI's publisher is registered for testpypi.yml / testpypi.
+[TestPyPI workflow 38509652441](https://github.com/Sanju2911/belazywithreact/actions/runs/38509652441)
+successfully built, validated, and uploaded version 0.1.0 from commit 590bfb9.
+The TestPyPI JSON API verified both artifacts and their SHA256 digests. A clean
+Windows environment installed the wheel directly from test-files.pythonhosted.org
+with a matching digest, passed pip check, and ran the installed CLI --help.
+Dependencies were installed separately from normal PyPI to ensure package origin.
 Remote Actions passed on all configured OS/Python combinations. Python
 3.10/3.14, macOS, and Linux were validated in CI rather than on this Windows host.
 
-PyPI and TestPyPI accounts and Trusted Publishers require separate setup.
-Configure GitHub environments, especially production required-reviewer
-protection, before triggering publishing. Follow [RELEASING.md](RELEASING.md)
+PyPI and TestPyPI accounts and Trusted Publishers are separate and configured.
+The production required-reviewer protection is active. Follow [RELEASING.md](RELEASING.md)
 for exact fields, TestPyPI verification, and future releases. Production
 publication requires the owner's explicit approval after reviewing version,
 filenames, hashes, successful validation, CI, and TestPyPI results.

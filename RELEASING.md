@@ -7,6 +7,13 @@ guarantee name availability: pending publishers do not reserve names.
 Check again immediately before publishing. Do not replace a project owned by
 someone else or attempt to reuse an already uploaded version/file.
 
+On 2026-10-14, production PyPI's pending publisher was registered with explicit
+approval for configuration only. TestPyPI's publisher was registered and its
+workflow successfully published 0.1.0 from commit 590bfb9; clean-environment
+installation, package origin, dependency checks, and CLI execution were verified.
+Production publication still requires separate explicit approval. The final
+release documentation was updated afterward; the tested CLI source is preserved.
+
 ## GitHub setup
 
 The public repository is [Sanju2911/belazywithreact](https://github.com/Sanju2911/belazywithreact),
